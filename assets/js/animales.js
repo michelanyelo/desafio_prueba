@@ -75,3 +75,12 @@ class Serpiente extends Animal {
     }
 }
 
+class Aguila extends Animal {
+    constructor(nombre, edad, img, comentarios, sonido) {
+        super(nombre, edad, img, comentarios, sonido);
+    }
+
+    Chillar() {
+        console.log(this.Sonido);
+    }
+}
