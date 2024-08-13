@@ -84,3 +84,5 @@ class Aguila extends Animal {
         console.log(this.Sonido);
     }
 }
+
+export { Animal, Leon, Lobo, Oso, Serpiente, Aguila };
