@@ -9,53 +9,57 @@ document.addEventListener("DOMContentLoaded", () => {
         // edad del animal
         const edadAnimal = formularioAnimales.edad.value;
         // comentarios respectos al animal
-        const comentarios = formularioAnimales.comentarios.value;
+        const comentariosAnimal = formularioAnimales.comentarios.value;
 
         // sonido del animal
         // ruta base de sonidos
         const rutaSonido = "../sounds/";
+        let sonidoAnimal = null;
         switch (nombreAnimal) {
             case "Leon":
-                const sonidoLeon = rutaSonido + nombreAnimal + ".mp3";
+                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
                 break;
             case "Lobo":
-                const sonidoLobo = rutaSonido + nombreAnimal + ".mp3";
+                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
                 break;
             case "Oso":
-                const sonidoOso = rutaSonido + nombreAnimal + ".mp3";
+                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
                 break;
             case "Serpiente":
-                const sonidoSerpiente = rutaSonido + nombreAnimal + ".mp3";
+                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
                 break;
             case "Aguila":
-                const sonidoAguila = rutaSonido + nombreAnimal + ".mp3";
+                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
                 break;
             default:
                 alert("Sonido no encontrado");
         }
 
+        // imagen del animal
+        // ruta base de imagen
         const rutaImg = "../imgs/";
-
+        let imgAnimal = null;
         switch (nombreAnimal) {
             case "Leon":
-                const imgLeon = rutaImg + nombreAnimal + ".png";
+                imgAnimal = rutaImg + nombreAnimal + ".png";
                 break;
             case "Lobo":
-                const imgLobo = rutaImg + nombreAnimal + ".jpg";
+                imgAnimal = rutaImg + nombreAnimal + ".jpg";
                 break;
             case "Oso":
-                const imgOso = rutaImg + nombreAnimal + ".jpg";
+                imgAnimal = rutaImg + nombreAnimal + ".jpg";
                 break;
             case "Serpiente":
-                const imgSerpiente = rutaImg + nombreAnimal + ".png";
+                imgAnimal = rutaImg + nombreAnimal + ".png";
                 break;
             case "Aguila":
-                const imgAguila = rutaImg + nombreAnimal + ".jpg";
+                imgAnimal = rutaImg + nombreAnimal + ".jpg";
                 break;
             default:
-                alert("Imagen no encontrada");
+                alert("Animal no encontrado");
         }
-        console.log(`El Nombre es: ${nombreAnimal}, la Edad es: ${edadAnimal} `);
+
+        console.log(`El Nombre es: ${nombreAnimal}, la Edad es: ${edadAnimal}, su Imagen es: ${imgAnimal}, hay de Cometario: ${comentariosAnimal} y el Sonido que hace es: ${sonidoAnimal} `);
 
     });
     // Crear instancias de las clases
