@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // comentarios respecto al animal
         const comentariosAnimal = formularioAnimales.comentarios.value;
 
+        // Ruta base de img y sonido
+        const rutaBaseImg = "../imgs/";
+        const rutaBaseSonido = "../sounds/";
         // Buscar imagen y sonido usando buscarAnimal
         const { imagen, sonido } = await buscarAnimal(nombreAnimal);
 
@@ -20,19 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         switch (nombreAnimal) {
             case "Leon":
-                animal = new Leon(nombreAnimal, edadAnimal, imagen, comentariosAnimal, sonido);
+                animal = new Leon(nombreAnimal, edadAnimal, rutaBaseImg + imagen, comentariosAnimal, rutaBaseSonido + sonido);
                 break;
             case "Lobo":
-                animal = new Lobo(nombreAnimal, edadAnimal, imagen, comentariosAnimal, sonido);
+                animal = new Lobo(nombreAnimal, edadAnimal, rutaBaseImg + imagen, comentariosAnimal, rutaBaseSonido + sonido);
                 break;
             case "Oso":
-                animal = new Oso(nombreAnimal, edadAnimal, imagen, comentariosAnimal, sonido);
+                animal = new Oso(nombreAnimal, edadAnimal, rutaBaseImg + imagen, comentariosAnimal, rutaBaseSonido + sonido);
                 break;
             case "Serpiente":
-                animal = new Serpiente(nombreAnimal, edadAnimal, imagen, comentariosAnimal, sonido);
+                animal = new Serpiente(nombreAnimal, edadAnimal, rutaBaseImg + imagen, comentariosAnimal, rutaBaseSonido + sonido);
                 break;
             case "Aguila":
-                animal = new Aguila(nombreAnimal, edadAnimal, imagen, comentariosAnimal, sonido);
+                animal = new Aguila(nombreAnimal, edadAnimal, rutaBaseImg + imagen, comentariosAnimal, rutaBaseSonido + sonido);
                 break;
             default:
                 alert("Animal no encontrado");
