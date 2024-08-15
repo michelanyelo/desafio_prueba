@@ -60,7 +60,7 @@ class Oso extends Animal {
         super(nombre, edad, img, comentarios, sonido);
     }
 
-    Gruñir() {
+    Grunir() {
         console.log(this.Sonido);
     }
 }
@@ -85,4 +85,4 @@ class Aguila extends Animal {
     }
 }
 
-export { Animal, Leon, Lobo, Oso, Serpiente, Aguila };
+export { Leon, Lobo, Oso, Serpiente, Aguila };
