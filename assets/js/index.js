@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formularioAnimales = document.forms.animalesForm;
     formularioAnimales.addEventListener("submit", (e) => {
         e.preventDefault();
+
         // nombre del animal
         const nombreAnimal = formularioAnimales.animal.value;
         // edad del animal
@@ -14,53 +15,35 @@ document.addEventListener("DOMContentLoaded", () => {
         // sonido del animal
         // ruta base de sonidos
         const rutaSonido = "../sounds/";
-        let sonidoAnimal = null;
-        switch (nombreAnimal) {
-            case "Leon":
-                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
-                break;
-            case "Lobo":
-                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
-                break;
-            case "Oso":
-                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
-                break;
-            case "Serpiente":
-                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
-                break;
-            case "Aguila":
-                sonidoAnimal = rutaSonido + nombreAnimal + ".mp3";
-                break;
-            default:
-                alert("Sonido no encontrado");
-        }
 
         // imagen del animal
         // ruta base de imagen
         const rutaImg = "../imgs/";
-        let imgAnimal = null;
+
+        // instancia de la clase
+        let animal = null;
+
         switch (nombreAnimal) {
             case "Leon":
-                imgAnimal = rutaImg + nombreAnimal + ".png";
+                animal = new Leon(nombreAnimal, edadAnimal, `${rutaImg}Leon.png`, comentariosAnimal, `${rutaSonido}nombreAnimal.mp3`);
                 break;
             case "Lobo":
-                imgAnimal = rutaImg + nombreAnimal + ".jpg";
+                animal = new Lobo(nombreAnimal, edadAnimal, `${rutaImg}Lobo.png`, comentariosAnimal, `${rutaSonido}nombreAnimal.mp3`);
                 break;
             case "Oso":
-                imgAnimal = rutaImg + nombreAnimal + ".jpg";
+                animal = new Oso(nombreAnimal, edadAnimal, `${rutaImg}Oso.png`, comentariosAnimal, `${rutaSonido}nombreAnimal.mp3`);
                 break;
             case "Serpiente":
-                imgAnimal = rutaImg + nombreAnimal + ".png";
+                animal = new Serpiente(nombreAnimal, edadAnimal, `${rutaImg}Serpiente.png`, comentariosAnimal, `${rutaSonido}nombreAnimal.mp3`);
                 break;
             case "Aguila":
-                imgAnimal = rutaImg + nombreAnimal + ".jpg";
+                animal = new Aguila(nombreAnimal, edadAnimal, `${rutaImg}Aguila.png`, comentariosAnimal, `${rutaSonido}nombreAnimal.mp3`);
                 break;
             default:
                 alert("Animal no encontrado");
         }
 
-        console.log(`El Nombre es: ${nombreAnimal}, la Edad es: ${edadAnimal}, su Imagen es: ${imgAnimal}, hay de Cometario: ${comentariosAnimal} y el Sonido que hace es: ${sonidoAnimal} `);
-
+        console.log(animal);
     });
     // Crear instancias de las clases
     const miLeon = new Leon("Simba", 5, "leon.png", "Rey de la selva", "Rugido.mp3");
