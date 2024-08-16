@@ -1,3 +1,4 @@
+// Función para desplegar la imagen del animal en el preview
 export const mostrarPreview = (imagen) => {
     const imgHtml = document.createElement('img');
     imgHtml.className = 'img-fluid';
@@ -5,6 +6,7 @@ export const mostrarPreview = (imagen) => {
     document.getElementById('preview').append(imgHtml);
 };
 
+// Función para mostrar el animal seleccionado en el área de investigación
 export const mostrarEnInvestigacion = (imagen, sonido, nombreAnimal) => {
     let containerAnimales = document.getElementById('Animales');
     containerAnimales.innerHTML += `
