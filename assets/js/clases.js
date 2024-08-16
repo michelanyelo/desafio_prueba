@@ -29,6 +29,10 @@ class Animal {
         return this.#sonido;
     }
 
+    get Comentarios() {
+        return this.#comentarios;
+    }
+
     // Setters
     set Comentarios(comentarios) {
         this.#comentarios = comentarios;
