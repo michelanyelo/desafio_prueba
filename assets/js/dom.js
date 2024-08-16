@@ -1,9 +1,27 @@
+import { buscarAnimal } from "./api.js";
+
 // Función para desplegar la imagen del animal en el preview
-export const mostrarPreview = (imagen) => {
-    const imgHtml = document.createElement('img');
-    imgHtml.className = 'img-fluid object-fit-contain';
-    imgHtml.src = `${imagen}`;
-    document.getElementById('preview').append(imgHtml);
+export const mostrarPreview = () => {
+    const selAnimal = document.getElementById('animal');
+    const previewContainer = document.getElementById('preview');
+
+    selAnimal.addEventListener("change", async () => {
+        const nombreAnimal = selAnimal.value;
+
+        // Llamar a la API para buscar la imagen en función del animal seleccionado
+        const { imagen } = await buscarAnimal(nombreAnimal);
+        const rutaBaseImg = "assets/imgs/";
+        const imgSrc = rutaBaseImg + imagen;
+
+        // Limpiar el contenedor de vista previa
+        previewContainer.innerHTML = '';
+
+        // Crear y agregar la nueva imagen
+        const imgHtml = document.createElement('img');
+        imgHtml.className = 'img-fluid object-fit-contain';
+        imgHtml.src = imgSrc;
+        previewContainer.append(imgHtml);
+    });
 };
 
 // Función para mostrar el animal seleccionado en el área de investigación
