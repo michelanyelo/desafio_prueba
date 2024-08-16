@@ -35,7 +35,7 @@ export const mostrarEnInvestigacion = (arrayAnimales) => {
             <img src="${animal.Img}" class="card-animal card-img-top img-fluid" alt="${animal.Nombre} en investigación" style="height: 200px; object-fit: cover; object-position: 0 0">
             <div class="card-body">
                 <audio controls style="max-width: 100%"> <source src="${animal.Sonido}" type="audio/mpeg">Reproducir sonido</audio>
-                <button class="btnMostrarModal btn btn-primary" value="${index}" data-bs-toggle="modal" data-bs-target="#animalModal">Ver más</button>
+                <button class="btnMostrarModal btn btn-dark" value="${index}" data-bs-toggle="modal" data-bs-target="#animalModal">Ver más</button>
             </div>
         </div>
     `;
@@ -49,15 +49,6 @@ export const mostrarEnInvestigacion = (arrayAnimales) => {
             mostrarModal(arrayAnimales, idAnimal);
         });
     });
-};
-
-
-// Función para devolver el formulario en un estado inicial
-export const estadoInicial = (formularioAnimales) => {
-    setTimeout(() => {
-        formularioAnimales.reset();
-        document.getElementById('preview').innerHTML = '';
-    }, 1500);
 };
 
 // Función para mostrar el modal de un animal seleccionado
@@ -77,11 +68,20 @@ export const mostrarModal = (arrayAnimales, idAnimal) => {
                 <div class="col-md-6">
                     <h2>${animal.Nombre}</h2>
                     <p>Edad: ${animal.Edad}</p>
-                    <p>${animal.Comentarios}</p>
+                    <p>Comentarios: ${animal.Comentarios}</p>
                 </div>
             </div>
         `;
 };
+
+// Función para devolver el formulario en un estado inicial
+export const estadoInicial = (formularioAnimales) => {
+    setTimeout(() => {
+        formularioAnimales.reset();
+        document.getElementById('preview').innerHTML = '';
+    }, 500);
+};
+
 
 
 
