@@ -1,5 +1,6 @@
 import { crearAnimal } from "./instancia.js";
-import { mostrarPreview, mostrarEnInvestigacion } from "./dom.js";
+import { mostrarPreview, mostrarEnInvestigacion, estadoInicial } from "./dom.js";
+import { validaCampos } from "./validacion.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -11,16 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const nombreAnimal = formularioAnimales.animal.value;
         const edadAnimal = formularioAnimales.edad.value;
         const comentariosAnimal = formularioAnimales.comentarios.value;
-        const animal = await crearAnimal(nombreAnimal, edadAnimal, comentariosAnimal);
+        const esValido = await validaCampos(nombreAnimal, edadAnimal, comentariosAnimal);
+        if (!esValido) {
+            //Detener la ejecución si los campos no son válidos
+            return;
+        } else {
+            const animal = await crearAnimal(nombreAnimal, edadAnimal, comentariosAnimal);
 
-        if (animal) {
-            mostrarPreview(animal.Img);
-            mostrarEnInvestigacion(animal.Img, animal.Sonido, nombreAnimal);
-
-            setTimeout(() => {
-                formularioAnimales.reset();
-                document.getElementById('preview').innerHTML = '';
-            }, 1000);
+            if (animal) {
+                mostrarPreview(animal.Img);
+                mostrarEnInvestigacion(animal.Img, animal.Sonido, nombreAnimal);
+                estadoInicial(formularioAnimales);
+            }
         }
     });
 });

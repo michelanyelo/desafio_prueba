@@ -1,5 +1,5 @@
 import { Leon, Lobo, Oso, Serpiente, Aguila } from "./clases.js";
-import { buscarAnimal } from "./utilidades.js";
+import { buscarAnimal } from "./api.js";
 
 export const crearAnimal = async (nombreAnimal, edadAnimal, comentariosAnimal) => {
     let { imagen, sonido } = await buscarAnimal(nombreAnimal);

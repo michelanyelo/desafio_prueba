@@ -16,3 +16,12 @@ export const mostrarEnInvestigacion = (imagen, sonido, nombreAnimal) => {
         </div>
     `;
 };
+
+// Función para devolver el formulario en un estado inicial
+export const estadoInicial = (formularioAnimales) => {
+    setTimeout(() => {
+        formularioAnimales.reset();
+        document.getElementById('preview').innerHTML = '';
+    }, 1500);
+};
+

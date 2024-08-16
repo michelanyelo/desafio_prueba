@@ -12,7 +12,7 @@ class Animal {
         this.#sonido = sonido;
     }
 
-    // getters
+    // Getters
     get Nombre() {
         return this.#nombre;
     }
@@ -29,7 +29,7 @@ class Animal {
         return this.#sonido;
     }
 
-    // setters
+    // Setters
     set Comentarios(comentarios) {
         this.#comentarios = comentarios;
     }
