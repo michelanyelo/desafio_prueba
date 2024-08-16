@@ -1,7 +1,7 @@
 // Función IIFE para cargar los datos iniciales
 const cargarDatosIniciales = (async () => {
     try {
-        const response = await fetch('../../animales.json');
+        const response = await fetch('animales.json');
         const data = await response.json();
         return data;
     } catch (error) {
